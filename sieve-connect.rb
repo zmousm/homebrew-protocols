@@ -146,17 +146,17 @@ class SieveConnect < Formula
   # drop HEAD support, or we stick to the old API.
   # We stick to the old API.  When Homebrew removes it, we'll drop HEAD
   # support.
-  def patches
-    if build.head?
-      # auto-versioning logic which is normally run in a make step
-      # for distribution preparation.
-      ln_s "/Library/Caches/Homebrew/sieve-connect--git/.git", ".git"
-      system "git", "fetch", "--depth=20"
-      system "make", "sieve-connect.pl", "man"
-    end
+  #def patches
+  #  if build.head?
+  #    # auto-versioning logic which is normally run in a make step
+  #    # for distribution preparation.
+  #    ln_s "/Library/Caches/Homebrew/sieve-connect--git/.git", ".git"
+  #    system "git", "fetch", "--depth=20"
+  #    system "make", "sieve-connect.pl", "man"
+  #  end
 
-    :DATA if build.without? "gssapi"
-  end
+  #  :DATA if build.without? "gssapi"
+  #end
 
   def install
     # The approach to vendoring of Perl modules used here is that
